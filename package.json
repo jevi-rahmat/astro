@@ -15,7 +15,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@iconify-json/akar-icons": "^1.2.7",
     "astro": "^6.1.8",
+    "astro-icon": "^1.1.5",
     "postcss": "^8.5.10",
     "postcss-preset-env": "^11.2.1"
   },
