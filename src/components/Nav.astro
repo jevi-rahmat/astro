@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+import navData from "../data/navData";
+import Link from "./Link.astro";
+---
+
+<nav aria-label="Primary">
+    <div class="navbar">
+        <a href="/" class="logo" aria-label="Home">
+            <Icon name="logo" width="50" height="50" />
+        </a>
+        <ul>
+            {
+                navData.map((item) => (
+                    <Link
+                        text={item.name}
+                        href={item.path}
+                        style="primary"
+                        isFilled={false}
+                        data-navLink
+                    />
+                ))
+            }
+        </ul>
+    </div>
+</nav>
+
+<script>
+    import "../js/nav.js";
+</script>
+
+<style lang="scss" is:global>
+    * {
+        font-family: "Inter";
+    }
+
+    nav {
+        .navbar {
+            display: flex;
+            align-items: center;
+            a {
+                margin: 10px;
+                text-decoration: none;
+            }
+            ul {
+                align-items: right;
+            }
+        }
+    }
+</style>
