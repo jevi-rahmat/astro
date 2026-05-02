@@ -15,7 +15,15 @@ const { title = "Default Title", description = "Default Description" } = Astro.p
     <MainHead {title} {description}></MainHead>
 	<body>
         <Nav />
-		<slot>Default</slot>
+		<main>
+            <slot>Default</slot>
+        </main>
         <Footer></Footer>
 	</body>
 </html>
+
+<style>
+    body {
+        padding: 40px;
+    }
+</style>
