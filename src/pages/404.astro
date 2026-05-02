@@ -1,0 +1,49 @@
+---
+import Link from "../components/Link.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Page Not Found">
+    <div 
+        class="container" 
+        style={{
+            display: "grid",
+            placeItems: "center",
+            textAlign: "center",
+            gap: 10
+    }}>
+        <div>
+            <h1 class="h1">Something went wrong!</h1>
+            <p>How did you do this?</p>
+        </div>
+        <Link href="/" style="secondary" text="Home" icon={{ name: "akar-icons:arrow-back", side: "right" }} classes="button">
+    </div>
+</MainLayout>
+
+<style>
+    img {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .button {
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    } 
+</style>
