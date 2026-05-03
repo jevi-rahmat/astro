@@ -1,0 +1,66 @@
+---
+import { slugify, formatDate } from "../js/utils";
+import Link from "./Link.astro";
+
+const { frontmatter, url, tagType } = Astro.props;
+const Tag = tagType;
+const { title, date, author, image, description, category } = frontmatter;
+---
+
+<article class="card">
+    <small>
+        <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+    </small>
+    <a href={url}
+        ><div class="blog-img">
+            <img src={image.src} alt={image.alt} width="200" />
+        </div></a
+    >
+    <div class="content">
+        <div>
+            <Tag>
+                <a class="title" href={url} aria-hidden="true" tabindex="-1">{title}</a>
+            </Tag>
+            <small class="author">By <a href={`/author/${slugify(author)}/`}>{author}</a> | </small>
+            <small class="date">{formatDate(date)}</small>
+        </div>
+        <p class="desc">{description}</p>
+        <!-- <Link classes="read" href={url} text="Read Post" style="secondary" /> -->
+    </div>
+</article>
+
+<style>
+    .badge {
+        background-color: #324ca8;
+        padding: 10px;
+        border-radius: 10px;
+        color: white;
+        margin: 10px;
+        text-decoration: none;
+    }
+
+    .blog-img {
+        margin-top: 20px;
+        margin-bottom: -30px;
+        padding: 10px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .title {
+        text-decoration: none;
+        color: black;
+        margin-bottom: -10px;
+    }
+
+    .desc {
+        margin-top: 0;
+    }
+
+    .read {
+        text-decoration: none;
+        margin-bottom: 20px;
+    }
+</style>
