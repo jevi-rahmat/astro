@@ -1,7 +1,78 @@
 ---
+import Link from "../components/Link.astro";
+import PostCard from "../components/PostCard.astro";
+import { formatBlogPosts } from "../js/utils";
 import MainLayout from "../layouts/MainLayout.astro";
+
+const allPosts = Object.values(import.meta.glob("./blog/*.md", { eager: true }));
+const formattedPosts = formatBlogPosts(allPosts, {
+    limit: 2,
+});
 ---
 
 <MainLayout title="Deep-Sky">
     <h1>Deep-Sky</h1>
+
+    <section class="container about" aria-label="About Me">
+        <img src="/images/Hehe.jpg" alt="Hehe" height="330" />
+        <div class="content">
+            <div class="h1">Programming Legend</div>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+                ut expedita commodi, minima corrupti ipsa quasi cum, eligendi
+                harum voluptatem facere repellendus beatae rerum quia sint
+                eveniet illo earum aliquam!
+            </p>
+            <Link
+                href="mailto:jevirahmat0@gmail.com"
+                style="primary"
+                text="Contact Me"
+                classes="button"
+            />
+        </div>
+    </section>
+
+    <h2>Blog</h2>
+    <section class="container" aria-label="Latest">
+        <div class="post-container">
+            {
+                formattedPosts.map((post: any) => (
+                    <PostCard
+                        frontmatter={post.frontmatter}
+                        url={post.url}
+                        tagType="h2"
+                    />
+                ))
+            }
+        </div>
+    </section>
 </MainLayout>
+
+<style>
+    img {
+        border-radius: 10px;
+        box-shadow:
+            0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .h1 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .button {
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow:
+            0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
