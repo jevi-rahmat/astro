@@ -1,8 +1,15 @@
 ---
 import PostCard from "../../components/PostCard.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
+import { formatBlogPosts } from "../../js/utils";
 
 const allPosts = Object.values(import.meta.glob('./*.md', {eager: true}));
+const formattedPosts = formatBlogPosts(allPosts, {
+    filterOutDrafts: false,
+    filterOutFuturePosts: false,
+    sortByDate: false,
+    limit: 2
+});
 ---
 
 <MainLayout title="Deep-Sky">
@@ -11,7 +18,7 @@ const allPosts = Object.values(import.meta.glob('./*.md', {eager: true}));
     <section class="container" aria-label="Latest">
         <div class="post-container">
             {
-                allPosts.map((post: any) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2" />)
+                formattedPosts.map((post: any) => <PostCard frontmatter={post.frontmatter} url={post.url} tagType="h2" />)
             }
         </div>
     </section>
