@@ -5,24 +5,32 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Deep-Sky">
     <h1>About</h1>
-    <section class="container about" aria-label="About Me"></section>
-    <img src="/images/Hehe.jpg" alt="Hehe" height="330" />
-    <div class="content">
-        <div class="h1">Programming Legend</div>
-        <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ut
-            expedita commodi, minima corrupti ipsa quasi cum, eligendi harum
-            voluptatem facere repellendus beatae rerum quia sint eveniet illo
-            earum aliquam!
-        </p>
-        <Link href="mailto:jevirahmat0@gmail.com" style="primary" text="Contact Me" classes="button"/>
-    </div>
+    <section class="container about" aria-label="About Me">
+        <img src="/images/Hehe.jpg" alt="Hehe" height="330">
+        <div class="content">
+            <div class="h1">Programming Legend</div>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi
+                ut expedita commodi, minima corrupti ipsa quasi cum, eligendi
+                harum voluptatem facere repellendus beatae rerum quia sint
+                eveniet illo earum aliquam!
+            </p>
+            <Link
+                href="mailto:jevirahmat0@gmail.com"
+                style="primary"
+                text="Contact Me"
+                classes="button"
+            />
+        </div>
+    </section>
 </MainLayout>
 
 <style>
     img {
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        box-shadow:
+            0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .h1 {
@@ -40,6 +48,8 @@ import MainLayout from "../layouts/MainLayout.astro";
         color: white;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    } 
+        box-shadow:
+            0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 </style>
